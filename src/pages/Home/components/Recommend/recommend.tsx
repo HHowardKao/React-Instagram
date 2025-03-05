@@ -14,31 +14,31 @@ const Recommend: React.FC = () => {
       </div>
       <User
         account="dahhyunnee"
-        image="/images/avatar/Dahyun.jpg"
+        image="./images/avatar/Dahyun.jpg"
         name="다현 (DAHYUN)"
         flag={false}
       />
       <User
         account="m.by__sana"
-        image="/images/avatar/Sana.jpg"
+        image="./images/avatar/Sana.jpg"
         name="사나 𝚂𝚊𝚗𝚊"
         flag={false}
       />
       <User
         account="thinkaboutzu"
-        image="/images/avatar/Tzuyu.jpg"
+        image="./images/avatar/Tzuyu.jpg"
         name="쯔위 (TZUYU)"
         flag={false}
       />
       <User
         account="momo"
-        image="/images/avatar/Momo.jpg"
+        image="./images/avatar/Momo.jpg"
         name="모모 (MOMO)"
         flag={false}
       />
       <User
         account="nayeonyny"
-        image="/images/avatar/Nayeon.jpg"
+        image="./images/avatar/Nayeon.jpg"
         name="나연 (NAYEON)"
         flag={false}
       />

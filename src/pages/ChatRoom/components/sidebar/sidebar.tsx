@@ -91,7 +91,7 @@ const Sidebar: React.FC = () => {
           </div>
           <div className="flex items-center mb-5 mt-5">
             <img
-              src="/images/avatar/me.jpg"
+              src="./images/avatar/me.jpg"
               alt=""
               className="w-7 h-7  rounded-full "
             />
@@ -99,7 +99,7 @@ const Sidebar: React.FC = () => {
         </div>
         <div className="my-8  mt-25">
           <div className="flex items-center mb-5 mt-5">
-            <img src="/images/threads.png" alt="" className="w-7 h-7 mr-3" />
+            <img src="./images/threads.png" alt="" className="w-7 h-7 mr-3" />
           </div>
           <div className="flex items-center mb-5 mt-5">
             <svg
