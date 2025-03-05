@@ -40,5 +40,11 @@
     "typescript-eslint": "^8.22.0",
     "vite": "^6.1.0"
   },
+  "browserslist": [
+    "defaults",
+    "not dead",
+    "not ie 11",
+    "not op_mini all"
+  ],
   "homepage": "https://HHowardKao.github.io/React-Instagram"
 }

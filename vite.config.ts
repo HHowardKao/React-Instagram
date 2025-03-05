@@ -5,4 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   base: "/React-Instagram/",
+  build: {
+    target: "es2015", // 確保支援較舊的瀏覽器
+  },
 });
