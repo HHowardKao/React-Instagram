@@ -27,7 +27,10 @@ type IGChat = {
 };
 export const homeApi = createApi({
   reducerPath: "homeApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3004/" }),
+  // baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3004/" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: "https://react-instagram-sk39.onrender.com",
+  }),
   endpoints: (builder) => ({
     getIGPosts: builder.query<IGPost[], number | "all">({
       query: (id) => {
