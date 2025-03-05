@@ -1,0 +1,153 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "like": "500",
+      "comment": "20",
+      "description": "整頓交通 王者清華",
+      "account": "_grape.1015",
+      "createtime": "1週前",
+      "avatar": "/images/avatar/me.jpg",
+      "image": "/images/post/meichu.jpg"
+    },
+    {
+      "id": 2,
+      "like": "657",
+      "comment": "204",
+      "description": "恨帥潮 長又贏",
+      "account": "6dory",
+      "createtime": "1年前",
+      "avatar": "/images/avatar/poster2.jpeg",
+      "image": "/images/post/post.jpg"
+    },
+    {
+      "id": 3,
+      "like": "5954",
+      "comment": "21",
+      "description": "《IVE EMPATHY》❤️❤️",
+      "account": "_yujin_an",
+      "createtime": "1個月前",
+      "avatar": "/images/avatar/Yujin.jpg",
+      "image": "/images/post/ive1.jpg"
+    }
+  ],
+  "stories": [
+    {
+      "id": 1,
+      "account": "_grape.1015",
+      "avatar": "/images/avatar/me.jpg"
+    },
+    {
+      "id": 2,
+      "account": "_yujin_an",
+      "avatar": "/images/avatar/Yujin.jpg"
+    },
+    {
+      "id": 3,
+      "account": "for_everyoung10",
+      "avatar": "/images/avatar/Wonyoung.jpg"
+    },
+    {
+      "id": 4,
+      "account": "eeseooes",
+      "avatar": "/images/avatar/Leeseo.jpg"
+    },
+    {
+      "id": 5,
+      "account": "reinyourheart",
+      "avatar": "/images/avatar/Rei.jpg"
+    },
+    {
+      "id": 6,
+      "account": "liz.yeyo",
+      "avatar": "/images/avatar/Liz.jpg"
+    },
+    {
+      "id": 7,
+      "account": "fallingin__fall",
+      "avatar": "/images/avatar/Gaeul.jpg"
+    }
+  ],
+  "chats": [
+    {
+      "id": 1,
+      "avatar": "/images/avatar/Yujin.jpg",
+      "message": "♥️",
+      "name": "안유진 AN YUJIN",
+      "flag": true,
+      "time": "1小時前"
+    },
+    {
+      "id": 2,
+      "avatar": "/images/avatar/jay.jpg",
+      "message": "唉呦 不錯喔",
+      "name": "Jay Chou 周杰倫",
+      "flag": true,
+      "time": "3天前"
+    },
+    {
+      "id": 3,
+      "avatar": "/images/avatar/james.jpg",
+      "message": "I'm the GOAT",
+      "name": "👑",
+      "flag": true,
+      "time": "1週前"
+    },
+    {
+      "id": 4,
+      "avatar": "/images/avatar/huang.jpg",
+      "message": "爸爸給你零用錢",
+      "name": "Jensen Huang 黃仁勳",
+      "flag": true,
+      "time": "3週前"
+    },
+    {
+      "id": 5,
+      "avatar": "/images/avatar/spongebob.png",
+      "message": "是誰在吹泡泡",
+      "name": "海綿寶寶",
+      "flag": false,
+      "time": "5個月前"
+    },
+    {
+      "id": 6,
+      "avatar": "/images/avatar/Liz.jpg",
+      "message": "現在幾點",
+      "name": "리즈 LIZ",
+      "flag": false,
+      "time": "8個月前"
+    },
+    {
+      "id": 7,
+      "avatar": "/images/avatar/Gaeul.jpg",
+      "message": "晚餐吃什麼",
+      "name": "가을 GAEUL",
+      "flag": false,
+      "time": "1年前"
+    },
+    {
+      "id": 8,
+      "avatar": "/images/avatar/Wonyoung.jpg",
+      "message": "今天天氣如何",
+      "name": "장원영 WONYOUNG",
+      "flag": false,
+      "time": "1年前"
+    },
+    {
+      "id": 9,
+      "avatar": "/images/avatar/Leeseo.jpg",
+      "message": "今天我生日",
+      "name": "이서 LEESEO",
+      "flag": false,
+      "time": "3年前"
+    },
+    {
+      "id": 10,
+      "avatar": "/images/avatar/Rei.jpg",
+      "message": "我很餓",
+      "name": "레이 REI",
+      "flag": false,
+      "time": "3年前"
+    }
+  ]
+}
