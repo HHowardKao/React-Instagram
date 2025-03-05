@@ -4,7 +4,7 @@ const Recommend: React.FC = () => {
     <div className="ml-7 mt-10  pb-4 shadow-md ">
       <User
         account="_grape.1015"
-        image="/images/avatar/me.jpg"
+        image="./images/avatar/me.jpg"
         name="高國豪"
         flag={true}
       />

@@ -48,7 +48,7 @@ const Bottombar: React.FC = () => {
       </Link>
 
       <img
-        src="/images/avatar/me.jpg"
+        src="./images/avatar/me.jpg"
         alt=""
         className="w-6 h-6 cursor-pointer rounded-full "
       />

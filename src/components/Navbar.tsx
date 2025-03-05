@@ -5,7 +5,7 @@ const Navbar: React.FC = () => {
     <header className="sticky top-0 bg-white border-b-[1px] border-gray-300">
       <div className="flex items-center justify-stretch h-[60px]  box-border lg:max-w-[1024px] lg:mx-auto lg:px-0">
         <Link to="/">
-          <img src="/images/logo.svg" className="w-[100px] ml-1" />
+          <img src="./images/logo.svg" className="w-[100px] ml-1" />
         </Link>
         <div className="flex items-center ">
           <div className="relative ">
