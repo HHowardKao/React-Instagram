@@ -2,7 +2,7 @@
 
 ## 1.Architecture Design & Explanation
 
-### <font color=#0000FF>設定 Tailwind CSS</font>
+### 設定 Tailwind CSS
 
 1.在終端機執行以下指令:
 
@@ -156,3 +156,163 @@ import Image from "./image";
 - recommend.tsx:顯示推薦用戶清單
 
 ### pages > ChatRoom > index.tsx
+
+建立聊天室 (ChatRoom) 頁面，用來管理和顯示使用者的聊天訊息
+
+#### 聊天室包含的元件:
+
+```tsx
+import Container from "../../components/Container";
+import Friend from "./components/friend/friend";
+import Bottombar from "../../components/Bottombar";
+import Sidebar from "./components/sidebar/sidebar";
+import Friends from "./components/friend/friends";
+import Chatuser from "./components/chatuser/chatuser";
+```
+
+- Container：用來包裝聊天室區塊，提供固定的頁面布局
+- Sidebar：顯示在左側的側邊欄（僅桌機版）
+- Friend / Friends：負責顯示好友清單（行動版顯示 Friend，桌機版顯示 Friends）
+- Chatuser：用來顯示當前聊天對象或聊天對話
+- Bottombar：在行動版中顯示底部導航列
+
+#### chatuser
+
+- user.tsx:顯示聊天室中的用戶訊息預覽
+  - 頭像 (image)、名稱 (name)、最近訊息 (message)、時間 (time)。
+  - 區分已讀(flag=false) → 灰色訊息 (text-gray-400) / 未讀訊息(flag=true) → 黑色訊息 (text-black)，右側顯示 🔵
+- chatuser.tsx:顯示用戶的聊天清單
+
+```tsx
+import User from "./user";
+import { useGetIGChatsQuery } from "../../../../redux/Homeservices";
+```
+
+1. 透過 Redux API 取得聊天清單 (chats)
+2. 使用 User 元件顯示每個聊天對象
+
+#### friend
+
+- friend.tsx:在行動版聊天室 (ChatRoom) 顯示好友列表
+- friends.tsx:顯示桌機版聊天室的頂部好友資訊區塊
+
+### redux
+
+#### Homeservices.ts
+
+使用 Redux Toolkit Query 來管理 API 端點
+
+```ts
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+```
+
+- createApi：
+  - Redux Toolkit Query 提供的函數，用來定義 API 端點並管理請求狀態
+- fetchBaseQuery：
+  - 用於設定 API 請求的基本 URL，讓每個端點都能自動附加 baseUrl
+
+1. 定義 TypeScript 類型
+2. 建立 API
+
+```ts
+export const homeApi = createApi({
+  reducerPath: "homeApi",
+  baseQuery: fetchBaseQuery({
+    baseUrl: "設定 API 的基礎 URL",
+  }),
+  endpoints: (builder) => ({
+```
+
+- reducerPath: "homeApi"
+  - 設定 Redux store 中的 API 名稱
+- baseQuery: fetchBaseQuery({ baseUrl: "設定 API 的基礎 URL" })：
+  - 設定 API 的基礎 URL，所有請求都會以這個網址為開頭。
+
+3. 定義 API 端點
+   用 builder.query() 來定義三個 API 查詢端點：
+   取得貼文 (getIGPosts)、取得限時動態 (getIGStoies)、取得聊天訊息 (getIGChats)
+4. 匯出 API Hooks
+
+#### store.ts
+
+- 建立 Redux Store，並註冊 homeApi.reducer 處理 API 狀態。
+- 將 homeApi.middleware 添加到 middleware，確保 API 請求能正常運行。
+- 提供 store 供 index.tsx 使用，讓整個應用可以透過 Redux Toolkit Query 進行數據請求。
+
+```ts
+import { configureStore } from "@reduxjs/toolkit";
+import { homeApi } from "./Homeservices";
+```
+
+- configureStore：
+  - Redux Toolkit 提供的 API，用來建立 Redux Store。
+- homeApi：
+  - 從 Homeservices.ts 匯入 API 端點設定。
+  - 讓 Store 知道這些 API 查詢 (query) 並管理請求狀態。
+
+1. 設定 reducer
+
+```ts
+reducer: {
+  [homeApi.reducerPath]: homeApi.reducer,
+},
+```
+
+- reducer 內部使用 [homeApi.reducerPath] 動態設定 API 的 reducer 路徑。
+- homeApi.reducer 負責管理 API 狀態（例如 API 請求中的 loading、成功或錯誤）。
+
+2. 設定 middleware
+
+```ts
+middleware: (getDefaultMiddleware) =>
+  getDefaultMiddleware().concat(homeApi.middleware),
+```
+
+- getDefaultMiddleware() → 取得 Redux Toolkit 預設的 middleware。
+- .concat(homeApi.middleware) → 將 API Middleware 添加進來，確保 Redux Toolkit Query 能處理 API 請求（如自動快取、重新請求等）。
+
+### main.tsx
+
+初始化 React 應用程式，並設定：
+
+1. Redux Store (Provider)
+2. 路由管理 (HashRouter)
+3. 應用的根組件 (App.tsx)
+
+```tsx
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import App from "./App.tsx";
+import { HashRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
+```
+
+- App.tsx → React 應用的主組件，負責渲染整個應用程式。
+- HashRouter → 讓應用程式支援路由管理，使用 # 來處理 URL 路由（適用於 GitHub Pages 或靜態網站）。
+- Provider → Redux 提供 store，讓應用中的組件可以存取全局狀態。
+- store → Redux Store（來自 store.ts），用來管理應用的狀態。
+
+### server.js
+
+1. 使用 json-server 建立模擬 API 伺服器。
+2. 讀取 db.json 作為模擬資料庫，提供 /posts、/stories、/chats API。
+3. 允許跨域請求 (CORS)，讓 React 應用可以存取 API。
+4. 允許 GET, POST, PUT, DELETE 請求，模擬完整的 CRUD 操作。
+5. 監聽 PORT 3004 或環境變數 PORT，適用於本機與部署環境。
+
+```tsx
+import jsonServer from "json-server";
+import cors from "cors";
+```
+
+- json-server：
+
+  - 提供 模擬 REST API，不需要真正的後端伺服器，就能快速測試 API。
+  - 透過 db.json 作為資料來源，自動生成 /posts, /chats, /stories 等端點。
+
+- cors：
+
+  - 允許前端（如 React 應用）從不同的來源 (localhost:3000) 請求 API (localhost:3004)。
+  - 預設瀏覽器會阻擋跨域請求，cors 可以解決這個問題。
