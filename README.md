@@ -210,7 +210,7 @@ import Chatuser from "./components/chatuser/chatuser";
 
 ![alt text9](image-4.png)
 
-#### [電腦版聊天室截圖畫面](#alttext10)
+#### [手機版聊天室截圖畫面](#alttext10)
 
 ![alt text10](image-9.png)
 
