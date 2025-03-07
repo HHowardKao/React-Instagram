@@ -2,7 +2,7 @@
 
 ## 1.Architecture Design & Explanation
 
-### 設定 Tailwind CSS
+### <font color=#0000FF>設定 Tailwind CSS</font>
 
 1.在終端機執行以下指令:
 
