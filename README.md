@@ -34,7 +34,7 @@ plugins: [tailwindcss()],
 @import "tailwindcss";
 ```
 
-### routes.tsx
+### [routes.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/routes.tsx)
 
 定義應用程式的路由，使用 react-router-dom 來管理不同頁面的導覽
 
@@ -66,7 +66,7 @@ const routes: RouteObject[] = [
 - path: "/chatroom" → 代表聊天室頁面，對應到 ChatRoom 元件
 - path: "\*" → 代表任何未匹配的路由，顯示 NotFound 元件
 
-### pages > Home > index.tsx
+### [pages > Home > index.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/pages/Home/index.tsx)
 
 定義首頁 (Home) 的結構與版面配置
 
@@ -90,7 +90,7 @@ import Bottombar from "../../components/Bottombar";
 - Recommend：右側推薦內容 (Recommend)，僅桌機版顯示。
 - Bottombar：底部導航欄，僅行動裝置顯示 (lg:hidden)。
 
-#### Container
+#### [Container](https://github.com/HHowardKao/React-Instagram/blob/main/src/components/Container.tsx)
 
 建立一個響應式的版面容器 (Container)
 
@@ -115,7 +115,7 @@ const Container = styled.div`
 - @media only screen and (max-width: 1024px)
   - 當螢幕寬度小於 1024px（如平板或手機），max-width 會變成 100%，適應較小的裝置。
 
-#### Navbar、Sidebar、Bottombar
+#### [Navbar](https://github.com/HHowardKao/React-Instagram/blob/main/src/components/Navbar.tsx)、[Sidebar](https://github.com/HHowardKao/React-Instagram/blob/main/src/components/Sidebar.tsx)、[Bottombar](https://github.com/HHowardKao/React-Instagram/blob/main/src/components/Bottombar.tsx)
 
 分別定義應用程式的頂部導航列 (Navbar)、側邊欄 (Sidebar)、底部導航列 (Bottombar)
 
@@ -125,7 +125,7 @@ import { Link } from "react-router-dom";
 
 Link 是 react-router-dom 提供的路由導覽元件，允許應用程式內部進行無刷新的頁面跳轉
 
-#### Story
+#### [Story](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Story)
 
 - Item.tsx:建立一個使用者頭像 (avatar) 與帳號 (account) 元件
 - Story.tsx:顯示限時動態 (Stories) 的 UI
@@ -138,7 +138,7 @@ import { useGetIGStoiesQuery } from "../../../../redux/Homeservices";
 1. 從 Redux API (useGetIGStoiesQuery) 取得限時動態列表
 2. 使用 Item 元件來顯示每個動態的頭像與使用者名稱
 
-#### Post
+#### [Post](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Post)
 
 - comment.tsx:顯示貼文的互動資訊，包括：按讚數、留言數、貼文描述、發文者帳號、發文時間
 - images.tsx:顯示貼文的圖片
@@ -160,12 +160,12 @@ import Image from "./image";
 - Image：顯示貼文圖片。
 - Comment：顯示按讚數、留言數、貼文描述與發文時間。
 
-#### Recommend
+#### [Recommend](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Recommend)
 
 - user.tsx:顯示使用者資訊 (頭像 + 帳號 + 名稱 + 追蹤按鈕)
 - recommend.tsx:顯示推薦用戶清單
 
-### pages > ChatRoom > index.tsx
+### [pages > ChatRoom > index.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/pages/ChatRoom/index.tsx)
 
 建立聊天室 (ChatRoom) 頁面，用來管理和顯示使用者的聊天訊息
 
@@ -186,7 +186,7 @@ import Chatuser from "./components/chatuser/chatuser";
 - Chatuser：用來顯示當前聊天對象或聊天對話
 - Bottombar：在行動版中顯示底部導航列
 
-#### chatuser
+#### [chatuser](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/ChatRoom/components/chatuser)
 
 - user.tsx:顯示聊天室中的用戶訊息預覽
   - 頭像 (image)、名稱 (name)、最近訊息 (message)、時間 (time)。
@@ -201,14 +201,14 @@ import { useGetIGChatsQuery } from "../../../../redux/Homeservices";
 1. 透過 Redux API 取得聊天清單 (chats)
 2. 使用 User 元件顯示每個聊天對象
 
-#### friend
+#### [friend](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/ChatRoom/components/friend)
 
 - friend.tsx:在行動版聊天室 (ChatRoom) 顯示好友列表
 - friends.tsx:顯示桌機版聊天室的頂部好友資訊區塊
 
-### redux
+### [redux](https://github.com/HHowardKao/React-Instagram/tree/main/src/redux)
 
-#### Homeservices.ts
+#### [Homeservices.ts](https://github.com/HHowardKao/React-Instagram/blob/main/src/redux/Homeservices.ts)
 
 使用 Redux Toolkit Query 來管理 API 端點
 
@@ -243,7 +243,7 @@ export const homeApi = createApi({
    取得貼文 (getIGPosts)、取得限時動態 (getIGStoies)、取得聊天訊息 (getIGChats)
 4. 匯出 API Hooks
 
-#### store.ts
+#### [store.ts](https://github.com/HHowardKao/React-Instagram/blob/main/src/redux/store.ts)
 
 - 建立 Redux Store，並註冊 homeApi.reducer 處理 API 狀態。
 - 將 homeApi.middleware 添加到 middleware，確保 API 請求能正常運行。
@@ -281,7 +281,7 @@ middleware: (getDefaultMiddleware) =>
 - getDefaultMiddleware() → 取得 Redux Toolkit 預設的 middleware。
 - .concat(homeApi.middleware) → 將 API Middleware 添加進來，確保 Redux Toolkit Query 能處理 API 請求（如自動快取、重新請求等）。
 
-### main.tsx
+### [main.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/main.tsx)
 
 初始化 React 應用程式，並設定：
 
@@ -304,7 +304,7 @@ import store from "./redux/store";
 - Provider → Redux 提供 store，讓應用中的組件可以存取全局狀態。
 - store → Redux Store（來自 store.ts），用來管理應用的狀態。
 
-### server.js
+### [server.js](https://github.com/HHowardKao/React-Instagram/blob/main/server.js)
 
 1. 使用 json-server 建立模擬 API 伺服器。
 2. 讀取 db.json 作為模擬資料庫，提供 /posts、/stories、/chats API。
