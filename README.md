@@ -7,6 +7,11 @@
 主要功能是定義應用程式的路由，使用 react-router-dom 來管理不同頁面的導覽
 
 ```tsx
+import { RouteObject } from "react-router-dom";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import ChatRoom from "./pages/ChatRoom";
+
 const routes: RouteObject[] = [
   {
     path: "/",
@@ -23,16 +28,17 @@ const routes: RouteObject[] = [
 ];
 ```
 
+- RouteObject 是 react-router-dom 提供的類型定義，表示一個路由物件。
 - routes 是一個陣列，包含應用程式的所有路由設定
-- path: "/" → 代表首頁，對應到 Home 組件
-- path: "/chatroom" → 代表聊天室頁面，對應到 ChatRoom 組件
-- path: "\*" → 代表任何未匹配的路由，顯示 NotFound 組件
+- path: "/" → 代表首頁，對應到 Home 元件
+- path: "/chatroom" → 代表聊天室頁面，對應到 ChatRoom 元件
+- path: "\*" → 代表任何未匹配的路由，顯示 NotFound 元件
 
 ### Home 主頁下的 index.tsx
 
 主要功能是定義首頁 (Home) 的結構與版面配置
 
-#### 主頁包含的組件:
+#### 主頁包含的元件:
 
 ```tsx
 import Container from "../../components/Container";
@@ -57,6 +63,8 @@ import Bottombar from "../../components/Bottombar";
 主要功能是建立一個響應式的版面容器 (Container)
 
 ```tsx
+import styled from "styled-components";
+
 const Container = styled.div`
   max-width: 1024px;
   margin: 0 auto;
@@ -67,9 +75,28 @@ const Container = styled.div`
 `;
 ```
 
+- styled-components 是一個 CSS-in-JS 解決方案，允許我們在 React 中直接撰寫 CSS 樣式，並封裝成 React 元件。
 - max-width: 1024px;
   - 預設最大寬度為 1024px，適合桌機版的顯示。
 - margin: 0 auto;
   - 讓 Container 水平置中，使內容對齊畫面中央。
 - @media only screen and (max-width: 1024px)
   - 當螢幕寬度小於 1024px（如平板或手機），max-width 會變成 100%，適應較小的裝置。
+
+#### Navbar.tsx
+
+主要功能是定義應用程式的頂部導航列 (Navbar)
+
+#### Sidebar.tsx
+
+主要功能是定義應用程式的側邊欄 (Sidebar)
+
+#### Bottombar.tsx
+
+主要功能是定義應用程式的底部導航列 (Bottombar)
+
+```tsx
+import { Link } from "react-router-dom";
+```
+
+Link 是 react-router-dom 提供的路由導覽元件，允許應用程式內部進行無刷新的頁面跳轉。
