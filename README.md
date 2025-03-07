@@ -124,7 +124,14 @@ import { Link } from "react-router-dom";
 ```
 
 Link 是 react-router-dom 提供的路由導覽元件，允許應用程式內部進行無刷新的頁面跳轉
-![alt text](image.png)
+
+#### [電腦版主頁截圖畫面](#alttext1)
+
+![alt text1](image.png)
+
+#### [手機版主頁截圖畫面](#alttext2)
+
+![alt text2](image-8.png)
 
 #### [Story](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Story)
 
@@ -139,8 +146,9 @@ import { useGetIGStoiesQuery } from "../../../../redux/Homeservices";
 1. 從 Redux API (useGetIGStoiesQuery) 取得限時動態列表
 2. 使用 Item 元件來顯示每個動態的頭像與使用者名稱
 
-![alt text](image-1.png)
-![alt text](image-8.png)
+#### [限時動態截圖畫面](#alttext3)
+
+![alt text3](image-1.png)
 
 #### [Post](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Post)
 
@@ -163,13 +171,19 @@ import Image from "./image";
 - User：顯示發文者資訊（頭像 + 帳號）。
 - Image：顯示貼文圖片。
 - Comment：顯示按讚數、留言數、貼文描述與發文時間。
-  ![alt text](image-2.png)
+
+#### [PO 文截圖畫面](#alttext4)
+
+![alt text4](image-2.png)
 
 #### [Recommend](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Recommend)
 
 - user.tsx:顯示使用者資訊 (頭像 + 帳號 + 名稱 + 追蹤按鈕)
 - recommend.tsx:顯示推薦用戶清單
-  ![alt text](image-3.png)
+
+#### [推薦列表截圖畫面](#alttext5)
+
+![alt text5](image-3.png)
 
 ### [pages > ChatRoom > index.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/pages/ChatRoom/index.tsx)
 
@@ -192,6 +206,14 @@ import Chatuser from "./components/chatuser/chatuser";
 - Chatuser：用來顯示當前聊天對象或聊天對話
 - Bottombar：在行動版中顯示底部導航列
 
+#### [電腦版聊天室截圖畫面](#alttext9)
+
+![alt text9](image-4.png)
+
+#### [電腦版聊天室截圖畫面](#alttext10)
+
+![alt text10](image-9.png)
+
 #### [chatuser](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/ChatRoom/components/chatuser)
 
 - user.tsx:顯示聊天室中的用戶訊息預覽
@@ -206,14 +228,23 @@ import { useGetIGChatsQuery } from "../../../../redux/Homeservices";
 
 1. 透過 Redux API 取得聊天清單 (chats)
 2. 使用 User 元件顯示每個聊天對象
-   ![alt text](image-5.png)
+
+#### [聊天室訊息截圖畫面](#alttext6)
+
+![alt text6](image-5.png)
 
 #### [friend](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/ChatRoom/components/friend)
 
-- friend.tsx:在行動版聊天室 (ChatRoom) 顯示好友列表
-- friends.tsx:顯示桌機版聊天室的頂部好友資訊區塊
-  ![alt text](image-4.png)
-  ![alt text](image-9.png)
+- friend.tsx:在手機版聊天室 (ChatRoom) 顯示好友列表
+- friends.tsx:顯示電腦版聊天室的頂部好友資訊區塊
+
+#### [手機版好友列表截圖畫面](#alttext7)
+
+![alt text7](image-6.png)
+
+#### [電腦版好友列表頂部截圖畫面](#alttext8)
+
+![alt text8](image-7.png)
 
 ### [redux](https://github.com/HHowardKao/React-Instagram/tree/main/src/redux)
 
