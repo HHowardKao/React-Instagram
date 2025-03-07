@@ -317,4 +317,4 @@ import cors from "cors";
   - 允許前端（如 React 應用）從不同的來源 (localhost:3000) 請求 API (localhost:3004)。
   - 預設瀏覽器會阻擋跨域請求，cors 可以解決這個問題。
 
-<span style="color:red">這是紅色的文字</span>
+![藍色文字](https://via.placeholder.com/100/004aad/FFFFFF?text=Blue)
