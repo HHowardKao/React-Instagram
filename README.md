@@ -68,6 +68,7 @@ const routes: RouteObject[] = [
 
 ### [pages > Home > index.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/pages/Home/index.tsx)
 
+![alt text](image.png)
 定義首頁 (Home) 的結構與版面配置
 
 #### 主頁包含的元件:
@@ -127,6 +128,8 @@ Link 是 react-router-dom 提供的路由導覽元件，允許應用程式內部
 
 #### [Story](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Story)
 
+![alt text](image-1.png)
+
 - Item.tsx:建立一個使用者頭像 (avatar) 與帳號 (account) 元件
 - Story.tsx:顯示限時動態 (Stories) 的 UI
 
@@ -139,6 +142,8 @@ import { useGetIGStoiesQuery } from "../../../../redux/Homeservices";
 2. 使用 Item 元件來顯示每個動態的頭像與使用者名稱
 
 #### [Post](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Post)
+
+![alt text](image-2.png)
 
 - comment.tsx:顯示貼文的互動資訊，包括：按讚數、留言數、貼文描述、發文者帳號、發文時間
 - images.tsx:顯示貼文的圖片
@@ -162,11 +167,14 @@ import Image from "./image";
 
 #### [Recommend](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Recommend)
 
+![alt text](image-3.png)
+
 - user.tsx:顯示使用者資訊 (頭像 + 帳號 + 名稱 + 追蹤按鈕)
 - recommend.tsx:顯示推薦用戶清單
 
 ### [pages > ChatRoom > index.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/pages/ChatRoom/index.tsx)
 
+![alt text](image-4.png)
 建立聊天室 (ChatRoom) 頁面，用來管理和顯示使用者的聊天訊息
 
 #### 聊天室包含的元件:
@@ -188,6 +196,8 @@ import Chatuser from "./components/chatuser/chatuser";
 
 #### [chatuser](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/ChatRoom/components/chatuser)
 
+![alt text](image-5.png)
+
 - user.tsx:顯示聊天室中的用戶訊息預覽
   - 頭像 (image)、名稱 (name)、最近訊息 (message)、時間 (time)。
   - 區分已讀(flag=false) → 灰色訊息 (text-gray-400) / 未讀訊息(flag=true) → 黑色訊息 (text-black)，右側顯示 🔵
@@ -202,6 +212,8 @@ import { useGetIGChatsQuery } from "../../../../redux/Homeservices";
 2. 使用 User 元件顯示每個聊天對象
 
 #### [friend](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/ChatRoom/components/friend)
+
+![alt text](image-6.png)
 
 - friend.tsx:在行動版聊天室 (ChatRoom) 顯示好友列表
 - friends.tsx:顯示桌機版聊天室的頂部好友資訊區塊
