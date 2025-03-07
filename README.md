@@ -68,7 +68,6 @@ const routes: RouteObject[] = [
 
 ### [pages > Home > index.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/pages/Home/index.tsx)
 
-![alt text](image.png)
 定義首頁 (Home) 的結構與版面配置
 
 #### 主頁包含的元件:
@@ -125,6 +124,7 @@ import { Link } from "react-router-dom";
 ```
 
 Link 是 react-router-dom 提供的路由導覽元件，允許應用程式內部進行無刷新的頁面跳轉
+![alt text](image.png)
 
 #### [Story](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Story)
 
