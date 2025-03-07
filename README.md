@@ -2,9 +2,31 @@
 
 ## 1.Architecture Design & Explanation
 
+### 設定 Tailwind CSS
+
+1.在終端機執行以下指令:
+
+```sh
+npm install tailwindcss @tailwindcss/vite
+```
+
+2.在 vite.config.ts 新增:
+
+```ts
+import tailwindcss from "@tailwindcss/vite";
+
+plugins: [tailwindcss()],
+```
+
+3.在 src/index.css 加入 Tailwind 的基礎樣式:
+
+```css
+@import "tailwindcss";
+```
+
 ### routes.tsx
 
-主要功能是定義應用程式的路由，使用 react-router-dom 來管理不同頁面的導覽
+定義應用程式的路由，使用 react-router-dom 來管理不同頁面的導覽
 
 ```tsx
 import { RouteObject } from "react-router-dom";
@@ -34,9 +56,9 @@ const routes: RouteObject[] = [
 - path: "/chatroom" → 代表聊天室頁面，對應到 ChatRoom 元件
 - path: "\*" → 代表任何未匹配的路由，顯示 NotFound 元件
 
-### Home > index.tsx
+### pages > Home > index.tsx
 
-主要功能是定義首頁 (Home) 的結構與版面配置
+定義首頁 (Home) 的結構與版面配置
 
 #### 主頁包含的元件:
 
@@ -60,7 +82,7 @@ import Bottombar from "../../components/Bottombar";
 
 #### Container
 
-主要功能是建立一個響應式的版面容器 (Container)
+建立一個響應式的版面容器 (Container)
 
 ```tsx
 import styled from "styled-components";
@@ -95,8 +117,8 @@ Link 是 react-router-dom 提供的路由導覽元件，允許應用程式內部
 
 #### Story
 
-- Item.tsx:主要功能是建立一個使用者頭像 (avatar) 與帳號 (account) 元件
-- Story.tsx:主要功能是顯示限時動態 (Stories) 的 UI
+- Item.tsx:建立一個使用者頭像 (avatar) 與帳號 (account) 元件
+- Story.tsx:顯示限時動態 (Stories) 的 UI
 
 ```tsx
 import Item from "./Item";
@@ -107,3 +129,30 @@ import { useGetIGStoiesQuery } from "../../../../redux/Homeservices";
 2. 使用 Item 元件來顯示每個動態的頭像與使用者名稱
 
 #### Post
+
+- comment.tsx:顯示貼文的互動資訊，包括：按讚數、留言數、貼文描述、發文者帳號、發文時間
+- images.tsx:顯示貼文的圖片
+- user.tsx:顯示貼文發佈者的頭像與帳號名稱
+- Post.tsx:顯示貼文 (Posts) 的 UI
+
+```tsx
+import React from "react";
+import { useGetIGPostsQuery } from "../../../../redux/Homeservices";
+import Comment from "./comment";
+import User from "./user";
+import Image from "./image";
+```
+
+1. 透過 useGetIGPostsQuery 從 Redux 取得貼文資料。
+2. 使用 User、Image 和 Comment 三個元件來組成每則貼文：
+
+- User：顯示發文者資訊（頭像 + 帳號）。
+- Image：顯示貼文圖片。
+- Comment：顯示按讚數、留言數、貼文描述與發文時間。
+
+#### Recommend
+
+- user.tsx:顯示使用者資訊 (頭像 + 帳號 + 名稱 + 追蹤按鈕)
+- recommend.tsx:顯示推薦用戶清單
+
+### pages > ChatRoom > index.tsx
