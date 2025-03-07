@@ -34,7 +34,7 @@ const routes: RouteObject[] = [
 - path: "/chatroom" → 代表聊天室頁面，對應到 ChatRoom 元件
 - path: "\*" → 代表任何未匹配的路由，顯示 NotFound 元件
 
-### Home 主頁下的 index.tsx
+### Home > index.tsx
 
 主要功能是定義首頁 (Home) 的結構與版面配置
 
@@ -58,7 +58,7 @@ import Bottombar from "../../components/Bottombar";
 - Recommend：右側推薦內容 (Recommend)，僅桌機版顯示。
 - Bottombar：底部導航欄，僅行動裝置顯示 (lg:hidden)。
 
-#### Container.tsx
+#### Container
 
 主要功能是建立一個響應式的版面容器 (Container)
 
@@ -83,20 +83,27 @@ const Container = styled.div`
 - @media only screen and (max-width: 1024px)
   - 當螢幕寬度小於 1024px（如平板或手機），max-width 會變成 100%，適應較小的裝置。
 
-#### Navbar.tsx
+#### Navbar、Sidebar、Bottombar
 
-主要功能是定義應用程式的頂部導航列 (Navbar)
-
-#### Sidebar.tsx
-
-主要功能是定義應用程式的側邊欄 (Sidebar)
-
-#### Bottombar.tsx
-
-主要功能是定義應用程式的底部導航列 (Bottombar)
+分別定義應用程式的頂部導航列 (Navbar)、側邊欄 (Sidebar)、底部導航列 (Bottombar)
 
 ```tsx
 import { Link } from "react-router-dom";
 ```
 
-Link 是 react-router-dom 提供的路由導覽元件，允許應用程式內部進行無刷新的頁面跳轉。
+Link 是 react-router-dom 提供的路由導覽元件，允許應用程式內部進行無刷新的頁面跳轉
+
+#### Story
+
+- Item.tsx:主要功能是建立一個使用者頭像 (avatar) 與帳號 (account) 元件
+- Story.tsx:主要功能是顯示限時動態 (Stories) 的 UI
+
+```tsx
+import Item from "./Item";
+import { useGetIGStoiesQuery } from "../../../../redux/Homeservices";
+```
+
+1. 從 Redux API (useGetIGStoiesQuery) 取得限時動態列表
+2. 使用 Item 元件來顯示每個動態的頭像與使用者名稱
+
+#### Post
