@@ -138,7 +138,9 @@ import { useGetIGStoiesQuery } from "../../../../redux/Homeservices";
 
 1. 從 Redux API (useGetIGStoiesQuery) 取得限時動態列表
 2. 使用 Item 元件來顯示每個動態的頭像與使用者名稱
-   ![alt text](image-1.png)
+
+![alt text](image-1.png)
+![alt text](image-8.png)
 
 #### [Post](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/Home/components/Post)
 
@@ -172,7 +174,6 @@ import Image from "./image";
 ### [pages > ChatRoom > index.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/pages/ChatRoom/index.tsx)
 
 建立聊天室 (ChatRoom) 頁面，用來管理和顯示使用者的聊天訊息
-![alt text](image-4.png)
 
 #### 聊天室包含的元件:
 
@@ -210,9 +211,9 @@ import { useGetIGChatsQuery } from "../../../../redux/Homeservices";
 #### [friend](https://github.com/HHowardKao/React-Instagram/tree/main/src/pages/ChatRoom/components/friend)
 
 - friend.tsx:在行動版聊天室 (ChatRoom) 顯示好友列表
-  ![alt text](image-6.png)
 - friends.tsx:顯示桌機版聊天室的頂部好友資訊區塊
-  ![alt text](image-7.png)
+  ![alt text](image-4.png)
+  ![alt text](image-9.png)
 
 ### [redux](https://github.com/HHowardKao/React-Instagram/tree/main/src/redux)
 
