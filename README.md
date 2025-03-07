@@ -68,9 +68,8 @@ const Container = styled.div`
 ```
 
 - max-width: 1024px;
-- 預設最大寬度為 1024px，適合桌機版的顯示。
+  - 預設最大寬度為 1024px，適合桌機版的顯示。
 - margin: 0 auto;
-- 讓 Container 水平置中，使內容對齊畫面中央。
+  - 讓 Container 水平置中，使內容對齊畫面中央。
 - @media only screen and (max-width: 1024px)
-
-- 當螢幕寬度小於 1024px（如平板或手機），max-width 會變成 100%，適應較小的裝置。
+  - 當螢幕寬度小於 1024px（如平板或手機），max-width 會變成 100%，適應較小的裝置。
