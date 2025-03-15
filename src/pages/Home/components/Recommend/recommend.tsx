@@ -24,6 +24,7 @@ const Recommend: React.FC = () => {
             image={image}
             name={name}
             flag={flag}
+            showFollow
           />
         );
       })}
