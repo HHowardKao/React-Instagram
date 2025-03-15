@@ -38,7 +38,9 @@ const User: React.FC<UserProps> = memo(
         </div>
         <div className="flex  absolute right-0">
           <p
-            className="text-[12px] text-blue-400  cursor-pointer mr-2 "
+            className={`${
+              flag ? "text-gray-700" : "text-blue-400"
+            } text-[12px] cursor-pointer mr-2`}
             onClick={followClickHandler}
           >
             {flag ? "切換" : "追蹤"}
