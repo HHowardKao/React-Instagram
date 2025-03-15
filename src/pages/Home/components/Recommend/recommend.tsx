@@ -10,7 +10,7 @@ const Recommend: React.FC = () => {
         image="./images/avatar/me.jpg"
         name="高國豪"
       />
-      <p className="text-[12px] cursor-pointer mr-2 text-blue-400">切換</p>
+
       <div className="flex justify-between">
         <p className="text-gray-700 text-[11px] pl-2">為你推薦</p>
         <p className="font-bold text-[11px] cursor-pointer mr-2">查看全部</p>

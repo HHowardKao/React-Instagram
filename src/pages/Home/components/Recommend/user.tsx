@@ -3,6 +3,7 @@ import { useAppDispatch } from "../../../../redux/hooks";
 import { memo } from "react";
 type UserProps = {
   id?: number;
+  showFollow?: boolean;
   account: string;
   image: string;
   name: string;
@@ -10,7 +11,7 @@ type UserProps = {
 };
 
 const User: React.FC<UserProps> = memo(
-  ({ id, account, image, name, flag = false }) => {
+  ({ id, account, image, name, flag = false, showFollow = false }) => {
     const dispatch = useAppDispatch();
 
     function followClickHandler() {
@@ -37,14 +38,16 @@ const User: React.FC<UserProps> = memo(
           <div className="text-gray-400 mt-1 text-[10px] ">{name}</div>
         </div>
         <div className="flex  absolute right-0">
-          <p
-            className={`${
-              flag ? "text-gray-700" : "text-blue-400"
-            } text-[12px] cursor-pointer mr-2`}
-            onClick={followClickHandler}
-          >
-            {flag ? "追蹤中" : "追蹤"}
-          </p>
+          {showFollow && (
+            <p
+              className={`${
+                flag ? "text-gray-700" : "text-blue-400"
+              } text-[12px] cursor-pointer mr-2`}
+              onClick={followClickHandler}
+            >
+              {flag ? "追蹤中" : "追蹤"}
+            </p>
+          )}
         </div>
       </div>
     );
