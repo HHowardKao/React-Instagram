@@ -6,7 +6,7 @@ type UserProps = {
   account: string;
   image: string;
   name: string;
-  flag: boolean;
+  flag?: boolean;
 };
 
 const User: React.FC<UserProps> = memo(
@@ -43,7 +43,7 @@ const User: React.FC<UserProps> = memo(
             } text-[12px] cursor-pointer mr-2`}
             onClick={followClickHandler}
           >
-            {flag ? "切換" : "追蹤"}
+            {flag ? "追蹤中" : "追蹤"}
           </p>
         </div>
       </div>

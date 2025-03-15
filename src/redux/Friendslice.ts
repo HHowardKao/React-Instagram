@@ -28,6 +28,27 @@ const initialState: friendState = {
       name: "사나 𝚂𝚊𝚗𝚊",
       flag: false,
     },
+    {
+      id: 3,
+      account: "momo",
+      image: "./images/avatar/Momo.jpg",
+      name: "모모 (MOMO)",
+      flag: false,
+    },
+    {
+      id: 4,
+      account: "thinkaboutzu",
+      image: "./images/avatar/Tzuyu.jpg",
+      name: "쯔위 (TZUYU)",
+      flag: false,
+    },
+    {
+      id: 5,
+      account: "nayeonyny",
+      image: "./images/avatar/Nayeon.jpg",
+      name: "나연 (NAYEON)",
+      flag: false,
+    },
   ],
 };
 
