@@ -12,7 +12,7 @@ const Explore: React.FC = () => {
 
       <Container className=" pb-[35px]  pt-[56px] lg:pb-0 lg:pt-0">
         <div className="flex  lg:justify-center">
-          <div className=" hidden lg:block lg:w-[262px] sticky top-0 h-screen">
+          <div className=" hidden lg:block lg:w-[262px] sticky top-0 h-100%">
             <Sidebar />
           </div>
           {/* <div className="w-full lg:w-[500px] overflow-y-auto">
@@ -21,7 +21,7 @@ const Explore: React.FC = () => {
           {/* <div className="w-full lg:block lg:w-[762px] sticky top-0 h-screen mt-10">
             <People />
           </div> */}
-          <div className="w-full lg:w-[762px] flex justify-center mt-10">
+          <div className="w-full lg:w-[762px] flex justify-center ">
             <div className="w-full max-w-[500px] h-[calc(100vh-80px)] overflow-y-auto">
               <People />
             </div>
