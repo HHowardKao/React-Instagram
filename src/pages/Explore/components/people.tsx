@@ -6,7 +6,7 @@ const People: React.FC = () => {
   return (
     <div>
       <div className="border-box h-[50px] bg-white flex items-center justify-between  ">
-        <p className="font-bold text-[15px] lg:mt-15  ml-5 ">建議</p>
+        <p className="font-bold text-[15px] lg:mt-15  ml-5 lg:mb-5">建議</p>
       </div>
 
       <div className="flex flex-col flex-1 overflow-y-auto">
