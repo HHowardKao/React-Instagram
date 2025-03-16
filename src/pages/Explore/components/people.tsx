@@ -5,8 +5,8 @@ const People: React.FC = () => {
   const friends = friendReducer.friends;
   return (
     <div>
-      <p className="font-bold text-[15px] lg:mt-12 pb-10 pl-2">建議</p>
-      <div>
+      <p className="font-bold text-[15px] lg:mt-15 pb-5 ml-5">建議</p>
+      <div className="flex flex-col flex-1 overflow-y-auto">
         {friends.map((item) => {
           const { id, account, image, name, flag } = item;
           return (
