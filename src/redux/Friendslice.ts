@@ -49,6 +49,41 @@ const initialState: friendState = {
       name: "나연 (NAYEON)",
       flag: false,
     },
+    {
+      id: 6,
+      account: "dahhyunnee",
+      image: "./images/avatar/Dahyun.jpg",
+      name: "다현 (DAHYUN)",
+      flag: false,
+    },
+    {
+      id: 7,
+      account: "m.by__sana",
+      image: "./images/avatar/Sana.jpg",
+      name: "사나 𝚂𝚊𝚗𝚊",
+      flag: false,
+    },
+    {
+      id: 8,
+      account: "momo",
+      image: "./images/avatar/Momo.jpg",
+      name: "모모 (MOMO)",
+      flag: false,
+    },
+    {
+      id: 9,
+      account: "thinkaboutzu",
+      image: "./images/avatar/Tzuyu.jpg",
+      name: "쯔위 (TZUYU)",
+      flag: false,
+    },
+    {
+      id: 10,
+      account: "nayeonyny",
+      image: "./images/avatar/Nayeon.jpg",
+      name: "나연 (NAYEON)",
+      flag: false,
+    },
   ],
 };
 
