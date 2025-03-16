@@ -1,9 +1,12 @@
 import Container from "../../components/Container";
 import Sidebar from "../../components/Sidebar";
 import Bottombar from "../../components/Bottombar";
-import People from "./components/people";
 import Navbar from "./components/navbar";
+import User from "../Home/components/Recommend/user";
+import { useAppSelector } from "../../redux/hooks";
 const Explore: React.FC = () => {
+  const friendReducer = useAppSelector((state) => state.friendReducer);
+  const friends = friendReducer.friends.slice(0, 5);
   return (
     <>
       <div className="block lg:hidden w-full fixed top-0  z-50">
@@ -16,7 +19,19 @@ const Explore: React.FC = () => {
             <Sidebar />
           </div>
           <div className="w-full lg:w-[762px] overflow-y-auto">
-            <People />
+            {friends.map((item) => {
+              const { id, account, image, name, flag } = item;
+              return (
+                <User
+                  id={id}
+                  account={account}
+                  image={image}
+                  name={name}
+                  flag={flag}
+                  showFollow
+                />
+              );
+            })}
           </div>
         </div>
       </Container>
