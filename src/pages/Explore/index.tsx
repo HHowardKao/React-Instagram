@@ -44,6 +44,7 @@ const Explore: React.FC = () => {
           <div className=" hidden lg:block lg:w-[262px] sticky top-0 h-screen">
             <Sidebar />
           </div>
+          <p className="font-bold text-[15px] lg:mt-15 pb-5 ml-5 ">建議</p>
           <div className="w-full lg:w-[762px] overflow-y-auto">
             <People />
           </div>
