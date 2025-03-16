@@ -2,11 +2,8 @@ import Container from "../../components/Container";
 import Sidebar from "../../components/Sidebar";
 import Bottombar from "../../components/Bottombar";
 import Navbar from "./components/navbar";
-import User from "../Home/components/Recommend/user";
-import { useAppSelector } from "../../redux/hooks";
+import People from "./components/people";
 const Explore: React.FC = () => {
-  const friendReducer = useAppSelector((state) => state.friendReducer);
-  const friends = friendReducer.friends;
   return (
     <>
       <div className="block lg:hidden w-full fixed top-0  z-50">
@@ -18,21 +15,8 @@ const Explore: React.FC = () => {
           <div className=" hidden lg:block lg:w-[262px] sticky top-0 h-screen">
             <Sidebar />
           </div>
-          <div className="w-full lg:w-[762px] overflow-y-auto lg:my-8 border-[5px] flex justify-between">
-            <p className="font-bold text-[15px]">建議</p>
-            {friends.map((item) => {
-              const { id, account, image, name, flag } = item;
-              return (
-                <User
-                  id={id}
-                  account={account}
-                  image={image}
-                  name={name}
-                  flag={flag}
-                  showFollow
-                />
-              );
-            })}
+          <div className="w-full lg:w-[762px] overflow-y-auto ">
+            <People />
           </div>
         </div>
       </Container>
