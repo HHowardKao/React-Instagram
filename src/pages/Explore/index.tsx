@@ -18,8 +18,8 @@ const Explore: React.FC = () => {
           <div className=" hidden lg:block lg:w-[262px] sticky top-0 h-screen">
             <Sidebar />
           </div>
-          <div className="w-full lg:w-[500px] overflow-y-auto lg:my-8">
-            <p className="font-bold text-[11px]">建議</p>
+          <div className="w-full lg:w-[762px] overflow-y-auto lg:my-8 flex items-center">
+            <p className="font-bold text-[15px]">建議</p>
             {friends.map((item) => {
               const { id, account, image, name, flag } = item;
               return (
