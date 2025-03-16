@@ -22,7 +22,7 @@ const Explore: React.FC = () => {
               <People />
             </div> */}
           <div className="w-full lg:w-[762px] flex justify-center lg:mt-10">
-            <div className="w-full max-w-[500px] h-[calc(100vh-85px)] overflow-y-auto">
+            <div className="w-full max-w-[500px]  overflow-y-auto">
               <People />
             </div>
           </div>
