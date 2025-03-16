@@ -4,7 +4,7 @@ const People: React.FC = () => {
   const friendReducer = useAppSelector((state) => state.friendReducer);
   const friends = friendReducer.friends;
   return (
-    <div className="box-border flex items-center overflow-x-auto overflow-y-hidden">
+    <div>
       <p className="font-bold text-[15px]">建議</p>
       {friends.map((item) => {
         const { id, account, image, name, flag } = item;
