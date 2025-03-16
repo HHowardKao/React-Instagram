@@ -6,7 +6,7 @@ const People: React.FC = () => {
   const friends = friendReducer.friends;
 
   return (
-    <div className="h-full flex flex-col">
+    <div>
       <p className="font-bold text-[15px] p-4">建議</p>
 
       {friends.map((item) => {
