@@ -1,16 +1,19 @@
 import { useAppSelector } from "../../../redux/hooks";
 import User from "../../Home/components/Recommend/user";
+
 const People: React.FC = () => {
   const friendReducer = useAppSelector((state) => state.friendReducer);
   const friends = friendReducer.friends;
+
   return (
-    <div>
-      <p className="font-bold text-[15px]">建議</p>
-      <div>
+    <div className="h-full flex flex-col">
+      <p className="font-bold text-[15px] p-4">建議</p>
+      <div className="flex-1 overflow-y-auto">
         {friends.map((item) => {
           const { id, account, image, name, flag } = item;
           return (
             <User
+              key={id}
               id={id}
               account={account}
               image={image}
