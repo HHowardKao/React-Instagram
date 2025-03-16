@@ -15,7 +15,10 @@ const Explore: React.FC = () => {
           <div className=" hidden lg:block lg:w-[262px] sticky top-0 h-screen">
             <Sidebar />
           </div>
-          <div className="w-full lg:w-[762px] overflow-y-auto ">
+          <div className="w-full lg:w-[500px] overflow-y-auto">
+            <People />
+          </div>
+          <div className="hidden lg:block lg:w-[262px] sticky top-0 h-screen">
             <People />
           </div>
         </div>
