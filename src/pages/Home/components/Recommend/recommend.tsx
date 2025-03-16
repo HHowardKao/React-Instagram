@@ -1,5 +1,6 @@
 import User from "./user";
 import { useAppSelector } from "../../../../redux/hooks";
+import { Link } from "react-router-dom";
 const Recommend: React.FC = () => {
   const friendReducer = useAppSelector((state) => state.friendReducer);
   const friends = friendReducer.friends.slice(0, 5);
@@ -13,7 +14,9 @@ const Recommend: React.FC = () => {
 
       <div className="flex justify-between">
         <p className="text-gray-700 text-[11px] pl-2">為你推薦</p>
-        <p className="font-bold text-[11px] cursor-pointer mr-2">查看全部</p>
+        <Link to="/explore">
+          <p className="font-bold text-[11px] cursor-pointer mr-2">查看全部</p>
+        </Link>
       </div>
       {friends.map((item) => {
         const { id, account, image, name, flag } = item;
