@@ -18,7 +18,7 @@ const Explore: React.FC = () => {
           {/* <div className="w-full lg:w-[500px] overflow-y-auto">
             <People />
           </div> */}
-          <div className=" lg:block lg:w-[500px] sticky top-0 h-screen mt-10">
+          <div className="w-full lg:block lg:w-[500px] sticky top-0 h-screen mt-10">
             <People />
           </div>
         </div>
