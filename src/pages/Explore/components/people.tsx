@@ -6,7 +6,7 @@ const People: React.FC = () => {
   return (
     <div>
       <p className="font-bold text-[15px]">建議</p>
-      <div className="flex flex-col h-[84%] flex-1 overflow-y-auto ">
+      <div>
         {friends.map((item) => {
           const { id, account, image, name, flag } = item;
           return (
