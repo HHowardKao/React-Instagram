@@ -50,7 +50,7 @@ const Explore: React.FC = () => {
           </div>
 
           {/* 右側主內容滾動 */}
-          <div className="w-full lg:w-[calc(100%-262px)] flex justify-center mt-10">
+          <div className="w-full lg:w-[762px] flex justify-center mt-10">
             <div className="w-full max-w-[500px] h-[calc(100vh-80px)] overflow-y-auto">
               <People />
             </div>
