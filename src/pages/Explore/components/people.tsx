@@ -7,8 +7,8 @@ const People: React.FC = () => {
 
   return (
     <div className="h-full flex flex-col">
-      <p className="font-bold text-[13px] p-4 h-[16%]">建議</p>
-      <div className="flex-1 overflow-y-auto h-[84%]">
+      <p className="font-bold text-[13px] p-4 h-[10%]">建議</p>
+      <div className="flex-1 overflow-y-auto ">
         {friends.map((item) => {
           const { id, account, image, name, flag } = item;
           return (
