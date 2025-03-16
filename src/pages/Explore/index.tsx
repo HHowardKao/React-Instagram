@@ -37,7 +37,7 @@ const Explore: React.FC = () => {
     <>
       <Container className=" pb-[35px]  pt-[56px] lg:pb-0 lg:pt-0">
         {/* 全頁固定，不滾動 */}
-        <div className="fixed inset-0 h-screen w-screen overflow-hidden flex flex-col">
+        <div className="fixed inset-0 h-screen  overflow-hidden flex flex-col">
           {/* 手機版 Navbar */}
           <div className="block lg:hidden w-full fixed top-0 z-50">
             <Navbar />
