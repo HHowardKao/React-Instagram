@@ -6,6 +6,7 @@
 - [routes.tsx](#routestsx)
 - [pages > Home > index.tsx](#pages-home-indextsx)
 - [pages > ChatRoom > index.tsx](#pages-ChatRoom-indextsx)
+- [pages > Explore > index.tsx](#pages-Explore-indextsx)
 - [redux](#redux)
 - [main.tsx](#main.tsx)
 - [server.js](#server.js)
@@ -246,7 +247,96 @@ import { useGetIGChatsQuery } from "../../../../redux/Homeservices";
 
 ![alt text8](image-7.png)
 
+### [pages > Explore > index.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/pages/Explore/index.tsx)
+
+建立「探索 (Explore) 頁面」，讓使用者可以探索其他用戶
+
+#### 探索頁面包含的元件:
+
+```tsx
+import Container from "../../components/Container";
+import Sidebar from "../../components/Sidebar";
+import Bottombar from "../../components/Bottombar";
+import Navbar from "../../components/Navbar";
+import People from "./components/people";
+```
+
+- People：主要內容區，用來顯示「探索」的人員。
+
+#### [電腦版探索頁面截圖畫面](#alttext10)
+
+![alt text10](image-10.png)
+
+#### [手機版探索頁面截圖畫面](#alttext11)
+
+![alt text11](image-11.png)
+
+#### [people](https://github.com/HHowardKao/React-Instagram/blob/main/src/pages/Explore/components/people.tsx)
+
+1. 在「探索（Explore）」頁面中顯示推薦用戶清單
+2. 從 Redux Store 取得推薦用戶清單
+3. 使用 User 元件顯示每位推薦好友資訊與追蹤按鈕
+
+```tsx
+import { useAppSelector } from "../../../redux/hooks";
+import User from "../../Home/components/Recommend/user";
+```
+
+- useAppSelector：自訂 Redux Hook，用來從 Store 中選取資料（這裡用於取得 friends 推薦清單）。
+- User：重複使用 Home 頁面中的推薦用戶元件，來顯示用戶頭像、帳號、名稱與追蹤按鈕。
+
+```tsx
+const friendReducer = useAppSelector((state) => state.friendReducer);
+const friends = friendReducer.friends;
+```
+
+- 從 Redux Store 中取得 friendReducer：Redux 有設定 friendReducer，並且內部有一個 friends 陣列。
+
 ### [redux](https://github.com/HHowardKao/React-Instagram/tree/main/src/redux)
+
+#### [Friendslice.ts](https://github.com/HHowardKao/React-Instagram/blob/main/src/redux/Friendslice.ts)
+
+- 提供推薦好友資料清單。
+- 可透過 Redux Action 進行追蹤 / 取消追蹤操作。
+- 與 Recommend, People 頁面整合，動態顯示追蹤狀態（透過 flag 控制）。
+
+```ts
+export const friendSlice = createSlice({
+  name: "friendsList",
+  initialState,
+  reducers: {
+    follow: (state, action: PayloadAction<number>) => {
+      const friends = state.friends;
+      for (let i = 0; i < friends.length; i++) {
+        if (friends[i].id === action.payload) {
+          friends[i].flag = true;
+        }
+      }
+    },
+    unFollow: (state, action: PayloadAction<number>) => {
+      const friends = state.friends;
+      for (let i = 0; i < friends.length; i++) {
+        if (friends[i].id === action.payload) {
+          friends[i].flag = false;
+        }
+      }
+    },
+  },
+});
+```
+
+Reducer 說明：
+
+- follow：接收 id 作為參數。找到對應好友，將其 flag 設為 true（已追蹤）。
+- unFollow：找到對應好友，將其 flag 設為 false（取消追蹤）。
+
+```ts
+export const { follow, unFollow } = friendSlice.actions;
+export default friendSlice.reducer;
+```
+
+- 匯出 follow / unFollow Action，供元件中調用（改變追蹤狀態）。
+- 匯出 reducer 供 store.ts 註冊進 Redux Store。
 
 #### [Homeservices.ts](https://github.com/HHowardKao/React-Instagram/blob/main/src/redux/Homeservices.ts)
 
@@ -285,41 +375,95 @@ export const homeApi = createApi({
 
 #### [store.ts](https://github.com/HHowardKao/React-Instagram/blob/main/src/redux/store.ts)
 
-- 建立 Redux Store，並註冊 homeApi.reducer 處理 API 狀態。
-- 將 homeApi.middleware 添加到 middleware，確保 API 請求能正常運行。
-- 提供 store 供 index.tsx 使用，讓整個應用可以透過 Redux Toolkit Query 進行數據請求。
+- 註冊 homeApi.reducer 與 friendReducer，整合 API 與好友推薦狀態。
+- 配置 homeApi.middleware，啟用 API 快取與請求功能。
+- 定義 RootState 與 AppDispatch 型別，提升 TypeScript 開發體驗。
+- 匯出 store 給整個 React 應用使用。
 
 ```ts
 import { configureStore } from "@reduxjs/toolkit";
 import { homeApi } from "./Homeservices";
+import friendReducer from "./Friendslice";
 ```
 
 - configureStore：
   - Redux Toolkit 提供的 API，用來建立 Redux Store。
 - homeApi：
+
   - 從 Homeservices.ts 匯入 API 端點設定。
   - 讓 Store 知道這些 API 查詢 (query) 並管理請求狀態。
 
-1. 設定 reducer
+- friendReducer：用來管理推薦好友的追蹤狀態。
+
+1. 建立 Redux Store
 
 ```ts
-reducer: {
-  [homeApi.reducerPath]: homeApi.reducer,
-},
+export const store = configureStore({
+  reducer: {
+    [homeApi.reducerPath]: homeApi.reducer,
+    friendReducer,
+  },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(homeApi.middleware),
+});
 ```
 
 - reducer 內部使用 [homeApi.reducerPath] 動態設定 API 的 reducer 路徑。
 - homeApi.reducer 負責管理 API 狀態（例如 API 請求中的 loading、成功或錯誤）。
-
-2. 設定 middleware
-
-```ts
-middleware: (getDefaultMiddleware) =>
-  getDefaultMiddleware().concat(homeApi.middleware),
-```
-
 - getDefaultMiddleware() → 取得 Redux Toolkit 預設的 middleware。
 - .concat(homeApi.middleware) → 將 API Middleware 添加進來，確保 Redux Toolkit Query 能處理 API 請求（如自動快取、重新請求等）。
+
+2. 定義 TypeScript 型別
+
+```ts
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+```
+
+- RootState：自動推導整個 Store 的 state 型別。
+- AppDispatch：自動推導 dispatch 函數的型別。
+- 📌 在元件中可搭配 Hook 使用：
+
+```ts
+const dispatch: AppDispatch = useDispatch();
+const state: RootState = useSelector((state) => state);
+```
+
+#### [hooks.ts](https://github.com/HHowardKao/React-Instagram/blob/main/src/redux/hooks.ts)
+
+自訂型別的 Redux Hooks
+
+1. 引入 Redux Hook 與型別
+
+```ts
+import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
+import type { RootState, AppDispatch } from "./store";
+```
+
+- useDispatch、useSelector：React-Redux 提供的基礎 Hook。
+- TypedUseSelectorHook：讓 useSelector 支援自訂 RootState 型別。
+- RootState、AppDispatch：從 store.ts 匯入，推導整個應用的 state 和 dispatch 型別。
+
+2. 自訂 Hook：useAppDispatch
+
+```ts
+export const useAppDispatch = () => useDispatch<AppDispatch>();
+```
+
+- 包裝原生 useDispatch，並指定 dispatch 型別為 AppDispatch。
+
+3. 自訂 Hook：useAppSelector
+
+```ts
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+```
+
+- 包裝原生 useSelector，並指定回傳值型別為 RootState。
+
+優點
+🔐 型別安全 → 自動推導 state 與 action，減少錯誤。
+🚀 開發快速 → 有型別補全，開發體驗更佳。
+♻️ 全域適用 → 可在所有組件中取代原生 useDispatch / useSelector。
 
 ### [main.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/main.tsx)
 
