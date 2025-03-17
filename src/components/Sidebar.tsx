@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const Sidebar: React.FC = () => {
   return (
     <>
-      <div className="border-r border-gray-300 h-full mr-3  ">
+      <div className="border-r border-gray-300 h-full mr-3   hover:bg-gray-50">
         <div className="my-8 ml-3 ">
           <Link to="/">
             <img src="./images/logo.svg" className="w-[100px] mb-20 mt-15" />
