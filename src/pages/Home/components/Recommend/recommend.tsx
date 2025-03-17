@@ -3,7 +3,7 @@ import { useAppSelector } from "../../../../redux/hooks";
 import { Link } from "react-router-dom";
 const Recommend: React.FC = () => {
   const friendReducer = useAppSelector((state) => state.friendReducer);
-  const friends = friendReducer.friends.slice(0, 5);
+  const friends = friendReducer.friends.slice(0, 10);
   return (
     <div className="ml-7 mt-10  pb-4 shadow-md ">
       <User
