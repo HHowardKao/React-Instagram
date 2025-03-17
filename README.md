@@ -460,9 +460,12 @@ export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 - 包裝原生 useSelector，並指定回傳值型別為 RootState。
 
-優點
+優點:
+
 🔐 型別安全 → 自動推導 state 與 action，減少錯誤。
+
 🚀 開發快速 → 有型別補全，開發體驗更佳。
+
 ♻️ 全域適用 → 可在所有組件中取代原生 useDispatch / useSelector。
 
 ### [main.tsx](https://github.com/HHowardKao/React-Instagram/blob/main/src/main.tsx)
