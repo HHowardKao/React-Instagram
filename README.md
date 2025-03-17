@@ -5,11 +5,11 @@
 - [設定 Tailwind CSS](#設定-tailwind-css)
 - [routes.tsx](#routestsx)
 - [pages > Home > index.tsx](#pages-home-indextsx)
-- [pages > ChatRoom > index.tsx](#pages-ChatRoom-indextsx)
-- [pages > Explore > index.tsx](#pages-Explore-indextsx)
+- [pages > ChatRoom > index.tsx](#pages-chatroom-indextsx)
+- [pages > Explore > index.tsx](#pages-explore-indextsx)
 - [redux](#redux)
-- [main.tsx](#main.tsx)
-- [server.js](#server.js)
+- [main.tsx](#maintsx)
+- [server.js](#serverjs)
 
 ## Architecture Design & Explanation
 
