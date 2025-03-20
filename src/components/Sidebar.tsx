@@ -5,7 +5,7 @@ const Sidebar: React.FC = () => {
       <div className="border-r border-gray-300 h-full mr-3  ">
         <div className="my-8 ml-3 ">
           <Link to="/">
-            <img src="./images/logo.svg" className="w-[100px] mb-20 mt-15" />
+            <img src="./images/logo.svg" className="w-[100px] mb-10 mt-15" />
           </Link>
           <div className="flex items-center mb-5 mt-5">
             <svg
