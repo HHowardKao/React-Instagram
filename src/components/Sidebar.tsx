@@ -94,7 +94,7 @@ const Sidebar: React.FC = () => {
             <h3 className="cursor-pointer">個人檔案</h3>
           </div>
         </div>
-        <div className="my-8 ml-3 mt-25">
+        <div className="my-8 ml-3 mt-15">
           <div className="flex items-center mb-5 mt-5">
             <img src="./images/threads.png" alt="" className="w-7 h-7 mr-3" />
             <h3 className="cursor-pointer">Threads</h3>
